@@ -20,6 +20,7 @@ import javax.swing.SwingUtilities;
 import movement.Path;
 import ui.DTNSimUI;
 import core.Coord;
+import core.DTN2Manager;
 import core.DTNHost;
 import core.SimClock;
 
@@ -102,7 +103,7 @@ public class DTNSimGUI extends DTNSimUI {
 
 		// Startup DTN2Manager
 		// XXX: Would be nice if this wasn't needed..
-		// DTN2Manager.setup(world);
+		DTN2Manager.setup(world);
 
 		while (simTime < endTime && !simCancelled){
 			if (guiControls.isPaused()) {

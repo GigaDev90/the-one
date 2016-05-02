@@ -69,7 +69,6 @@ public class DTN2Reporter extends Report implements MessageListener {
 	 */
 	public void messageTransferred(Message m, DTNHost from, DTNHost to,
 		boolean firstDelivery) {
-            System.out.println("Test");
 		if (firstDelivery) {
 			// We received a BundleMessage that should be passed to dtnd
 			CLAParser p = DTN2Manager.getParser(to);

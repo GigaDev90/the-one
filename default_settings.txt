@@ -29,7 +29,7 @@ highspeedInterface.transmitSpeed = 10M
 highspeedInterface.transmitRange = 10
 
 # Define 6 different node groups
-Scenario.nrofHostGroups = 6
+Scenario.nrofHostGroups = 7
 
 ## Group-specific settings:
 # groupID : Group's identifier. Used as the prefix of host names
@@ -64,7 +64,7 @@ Group.speed = 0.5, 1.5
 # Message TTL of 300 minutes (5 hours)
 Group.msgTtl = 300
 
-Group.nrofHosts = 40
+Group.nrofHosts = 10
 
 # group1 (pedestrians) specific settings
 Group1.groupID = p
@@ -110,6 +110,15 @@ Group6.waitTime = 10, 30
 Group6.speed = 7, 10
 Group6.nrofHosts = 2
 
+Group7.groupID = spy
+Group7.bufferSize = 50M
+Group7.movementModel = MapRouteMovement
+Group7.routeFile = data/tram10.wkt
+Group7.routeType = 2
+Group7.waitTime = 10, 30
+Group7.speed = 7, 10
+Group7.nrofHosts = 1
+
 
 ## Message creation parameters
 # How many event generators
@@ -122,7 +131,7 @@ Events1.interval = 25,35
 # Message sizes (500kB - 1MB)
 Events1.size = 500k,1M
 # range of message source/destination addresses
-Events1.hosts = 0,125
+Events1.hosts = 0,36
 # Message ID prefix
 Events1.prefix = M
 
@@ -146,15 +155,17 @@ MapBasedMovement.mapFile4 = data/shops.wkt
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 2
+Report.nrofReports = 1
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
 Report.reportDir = reports/
 # Report classes to load
-Report.report1 = ContactTimesReport
-Report.report2 = ConnectivityONEReport
-
+#Report.report1 = ContactTimesReport
+Report.report1 = SpyDeliveryPredictabilitiesReport
+#Report.report2 = 
+#Report.report3 = 
+#Report.report4 = 
 ## Default settings for some routers settings
 ProphetRouter.secondsInTimeUnit = 30
 SprayAndWaitRouter.nrofCopies = 6

@@ -55,7 +55,6 @@ public class SpyDeliveryPredictabilitiesReport extends Report
         }
         
         if (isWarmup()) {
-            addWarmupID(deliveryPredString(victim));
             return;
         }
 
@@ -90,7 +89,7 @@ public class SpyDeliveryPredictabilitiesReport extends Report
         String dps = "";
 
         RoutingInfo routingInfo = victim.getRoutingInfo().getMoreInfo().get(victim.getRoutingInfo().getMoreInfo().size() - 1);
-        dps += routingInfo.toString() + " of "+victim+"\n";
+        dps += victim+"\n";
 
         for (RoutingInfo routingInfo1 : routingInfo.getMoreInfo()) {
             dps += routingInfo1.toString() + "\n";

@@ -42,7 +42,7 @@ public class AdjacencyGraphvizReport extends Report implements ConnectionListene
 		}
 
 		newEvent();
-		ConnectionInfo ci = cons.get(host1+HOST_DELIM+host2);
+		ConnectionInfo ci = cons.get(host1+HOST_DELIM+host2) !=  null ? cons.get(host1+HOST_DELIM+host2) : cons.get(host2+HOST_DELIM+host1);
 
 		if (ci == null) {
 			cons.put(host1+HOST_DELIM+host2, new ConnectionInfo(host1,host2));

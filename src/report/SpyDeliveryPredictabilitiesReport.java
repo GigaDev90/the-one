@@ -43,18 +43,24 @@ public class SpyDeliveryPredictabilitiesReport extends Report
         write("No spy Node found");
     }
 
-    public void hostsConnected(DTNHost spy, DTNHost victim) {
-    
-        if (spy.equals(this.spy)) {
-            if (isWarmup()) {
-                System.out.println("it's warm");
-                addWarmupID(deliveryPredString(victim));
-                return;
-            }
-
-            newEvent();
-            write(createTimeStamp() + " " + deliveryPredString(victim));
+    public void hostsConnected(DTNHost h1, DTNHost h2) {
+        DTNHost victim;
+        
+        if (h1.equals(this.spy)) {
+            victim = h2;
+        } else if (h2.equals(this.spy)) {
+            victim = h1;
+        } else {
+            return;
         }
+        
+        if (isWarmup()) {
+            addWarmupID(deliveryPredString(victim));
+            return;
+        }
+
+        newEvent();
+        write(createTimeStamp() + " " + deliveryPredString(victim));
     }
     
     

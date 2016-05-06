@@ -14,6 +14,7 @@ import routing.MessageRouter;
 import routing.util.RoutingInfo;
 
 import static core.Constants.DEBUG;
+import routing.ProphetRouter;
 
 /**
  * A DTN capable host.
@@ -253,6 +254,9 @@ public class DTNHost implements Comparable<DTNHost> {
 	 * @return The routing info.
 	 */
 	public RoutingInfo getRoutingInfo() {
+                if( this.toString().length() >= 3 && this.toString().substring(0, 3).equals("spy") ) {
+                    return new RoutingInfo("");
+                }
 		return this.router.getRoutingInfo();
 	}
 

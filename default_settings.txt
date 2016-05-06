@@ -155,15 +155,15 @@ MapBasedMovement.mapFile4 = data/shops.wkt
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 2
+Report.nrofReports = 3
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
 Report.reportDir = reports/
 # Report classes to load
-#Report.report1 = ContactTimesReport
-Report.report1 = SpyDeliveryPredictabilitiesReport
-Report.report2 = AdjacencyGraphvizReport
+Report.report1 = ContactTimesReport
+Report.report2 = SpyDeliveryPredictabilitiesReport
+Report.report3 = AdjacencyGraphvizReport
 #Report.report3 = 
 #Report.report4 = 
 ## Default settings for some routers settings

@@ -141,23 +141,24 @@ public class ProphetRouter extends ActiveRouter {
 	 * @param host The B host who we just met
 	 */
 	private void updateTransitivePreds(DTNHost host) {
-		MessageRouter otherRouter = host.getRouter();
-		assert otherRouter instanceof ProphetRouter : "PRoPHET only works " +
-			" with other routers of same type";
-
-		double pForHost = getPredFor(host); // P(a,b)
-		Map<DTNHost, Double> othersPreds =
-			((ProphetRouter)otherRouter).getDeliveryPreds();
-
-		for (Map.Entry<DTNHost, Double> e : othersPreds.entrySet()) {
-			if (e.getKey() == getHost()) {
-				continue; // don't add yourself
-			}
-
-			double pOld = getPredFor(e.getKey()); // P(a,c)_old
-			double pNew = pOld + ( 1 - pOld) * pForHost * e.getValue() * beta;
-			preds.put(e.getKey(), pNew);
-		}
+            return;
+//		MessageRouter otherRouter = host.getRouter();
+//		assert otherRouter instanceof ProphetRouter : "PRoPHET only works " +
+//			" with other routers of same type";
+//
+//		double pForHost = getPredFor(host); // P(a,b)
+//		Map<DTNHost, Double> othersPreds =
+//			((ProphetRouter)otherRouter).getDeliveryPreds();
+//
+//		for (Map.Entry<DTNHost, Double> e : othersPreds.entrySet()) {
+//			if (e.getKey() == getHost()) {
+//				continue; // don't add yourself
+//			}
+//
+//			double pOld = getPredFor(e.getKey()); // P(a,c)_old
+//			double pNew = pOld + ( 1 - pOld) * pForHost * e.getValue() * beta;
+//			preds.put(e.getKey(), pNew);
+//		}
 	}
 
 	/**
